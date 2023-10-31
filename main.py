@@ -1,15 +1,24 @@
-def recur_factorial(n):
-   if n == 1:
-       return n
-   else:
-       return n*recur_factorial(n-1)
+class Student:
+    def __init__(self, name, roll_number, cgpa):
+        self.name = name
+        self.roll_number = roll_number
+        self.cgpa = cgpa
 
-num =int(input("Enter a Value:"))
+    def __repr__(self):
+        return f"{self.name}, Roll Number: {self.roll_number}, CGPA: {self.cgpa}"
 
-# check if the number is negative
-if num < 0:
-   print("Sorry, factorial does not exist for negative numbers")
-elif num == 0:
-   print("The factorial of 0 is 1")
-else:
-   print("The factorial of", num, "is", recur_factorial(num))
+def sort_students(student_list):
+    return sorted(student_list, key=lambda x: x.cgpa, reverse=True)
+
+# Test the function with different input lists of students
+students_list = [
+    Student("Alice", "A001", 3.8),
+    Student("Bob", "B002", 3.5),
+    Student("Charlie", "C003", 3.9),
+    Student("David", "D004", 3.7)
+]
+
+sorted_students = sort_students(students_list)
+for student in sorted_students:
+    print(student)
+  
